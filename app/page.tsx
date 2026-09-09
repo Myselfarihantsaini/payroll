@@ -420,7 +420,111 @@ function Services() {
     </div>
   );
 }
+type ReportView = 'finance' | 'hr' | 'leadership';
+const reportLabels: Record<ReportView, string> = {
+  finance: 'Finance view',
+  hr: 'HR view',
+  leadership: 'Leadership view',
+};
+const reportData: Record<
+  ReportView,
+  Array<{
+    requirement: string;
+    status: string;
+    owner: string;
+    action: string;
+    tone?: string;
+  }>
+> = {
+  finance: [
+    {
+      requirement: 'Payroll summary',
+      status: 'Completed',
+      owner: 'Payroll team',
+      action: 'Review salary summary',
+    },
+    {
+      requirement: 'PF / ESI records',
+      status: 'Compliant',
+      owner: 'Compliance team',
+      action: 'Retain verified records',
+    },
+    {
+      requirement: 'Contractor documents',
+      status: 'Pending',
+      owner: 'Contractor',
+      action: 'Supply missing records',
+      tone: 'pending',
+    },
+    {
+      requirement: 'Wage register',
+      status: 'In review',
+      owner: 'Compliance team',
+      action: 'Resolve record exceptions',
+      tone: 'review',
+    },
+  ],
+  hr: [
+    {
+      requirement: 'New joiner records',
+      status: 'Completed',
+      owner: 'HR team',
+      action: 'Review 3 new records',
+    },
+    {
+      requirement: 'Employee changes',
+      status: 'Completed',
+      owner: 'HR team',
+      action: 'Confirm monthly updates',
+    },
+    {
+      requirement: 'Contractor documents',
+      status: 'Pending',
+      owner: 'Contractor',
+      action: 'Supply missing records',
+      tone: 'pending',
+    },
+    {
+      requirement: 'Exit documentation',
+      status: 'In review',
+      owner: 'HR team',
+      action: 'Close 2 open files',
+      tone: 'review',
+    },
+  ],
+  leadership: [
+    {
+      requirement: 'Monthly payroll',
+      status: 'Completed',
+      owner: 'Payroll team',
+      action: 'No action required',
+    },
+    {
+      requirement: 'Compliance exceptions',
+      status: '7 open',
+      owner: 'Compliance team',
+      action: 'Review priority actions',
+      tone: 'pending',
+    },
+    {
+      requirement: 'Contractor records',
+      status: 'Pending',
+      owner: 'Operations',
+      action: 'Assign document owners',
+      tone: 'pending',
+    },
+    {
+      requirement: 'Audit actions',
+      status: 'In review',
+      owner: 'Compliance team',
+      action: 'Track closure status',
+      tone: 'review',
+    },
+  ],
+};
 function MoreSections() {
+  const [reportView, setReportView] = useState<ReportView>('finance');
+  const reportRows = reportData[reportView];
   return (
     <>
       <section className="process-section">
@@ -503,6 +607,26 @@ function MoreSections() {
             </div>
             <ClipboardCheck size={28} />
           </div>
+          <div
+            className="report-tabs"
+            role="tablist"
+            aria-label="Reporting views"
+          >
+            {(['finance', 'hr', 'leadership'] as ReportView[]).map((view) => (
+              <button
+                key={view}
+                type="button"
+                role="tab"
+                aria-selected={reportView === view}
+                className={
+                  reportView === view ? 'report-tab active' : 'report-tab'
+                }
+                onClick={() => setReportView(view)}
+              >
+                {reportLabels[view]}
+              </button>
+            ))}
+          </div>
           <Table className="report-table">
             <TableHeader>
               <TableRow>
@@ -512,46 +636,20 @@ function MoreSections() {
               </TableRow>
             </TableHeader>
             <TableBody>
-              <TableRow>
-                <TableCell>Payroll summary</TableCell>
-                <TableCell>
-                  <span className="status">Completed</span>
-                </TableCell>
-                <TableCell>
-                  <strong>Payroll team</strong>
-                  <small>Review salary summary</small>
-                </TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>PF / ESI records</TableCell>
-                <TableCell>
-                  <span className="status">Compliant</span>
-                </TableCell>
-                <TableCell>
-                  <strong>Compliance team</strong>
-                  <small>Retain verified records</small>
-                </TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>Contractor documents</TableCell>
-                <TableCell>
-                  <span className="status pending">Pending</span>
-                </TableCell>
-                <TableCell>
-                  <strong>Contractor</strong>
-                  <small>Supply missing records</small>
-                </TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>Wage register</TableCell>
-                <TableCell>
-                  <span className="status review">In review</span>
-                </TableCell>
-                <TableCell>
-                  <strong>Compliance team</strong>
-                  <small>Resolve record exceptions</small>
-                </TableCell>
-              </TableRow>
+              {reportRows.map((row) => (
+                <TableRow key={row.requirement}>
+                  <TableCell>{row.requirement}</TableCell>
+                  <TableCell>
+                    <span className={'status ' + (row.tone || '')}>
+                      {row.status}
+                    </span>
+                  </TableCell>
+                  <TableCell>
+                    <strong>{row.owner}</strong>
+                    <small>{row.action}</small>
+                  </TableCell>
+                </TableRow>
+              ))}
             </TableBody>
           </Table>
           <div className="document-progress">
