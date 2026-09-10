@@ -177,6 +177,7 @@ export default function Home() {
           </div>
           <Services />
         </section>
+        <ReferenceLayer />
         <MoreSections />
       </main>
       <footer className="wrap footer">
@@ -467,6 +468,129 @@ function Services() {
         </Dialog>
       ))}
     </div>
+  );
+}
+function ReferenceLayer() {
+  const capabilities = [
+    {
+      index: '01',
+      label: 'Payroll operations',
+      title: 'A dependable monthly control room.',
+      desc: 'Bring attendance, changes, approvals and payroll outputs into one coordinated operating rhythm.',
+      flow: ['Inputs', 'Review', 'Payroll', 'Output'],
+      icon: Wallet,
+    },
+    {
+      index: '02',
+      label: 'Compliance governance',
+      title: 'Evidence behind every status.',
+      desc: 'Organise establishment records, contractor documents and recurring requirements so gaps have owners.',
+      flow: ['Requirement', 'Evidence', 'Exception', 'Closure'],
+      icon: ShieldCheck,
+    },
+    {
+      index: '03',
+      label: 'Workforce administration',
+      title: 'Consistent processes across sites.',
+      desc: 'Keep joiners, exits, records and workforce changes clear for central teams and local operators.',
+      flow: ['Joiners', 'Changes', 'Records', 'Exits'],
+      icon: Users,
+    },
+  ] as Array<{
+    index: string;
+    label: string;
+    title: string;
+    desc: string;
+    flow: string[];
+    icon: IconComponent;
+  }>;
+  return (
+    <section className="reference-section wrap section">
+      <div className="section-heading reference-heading">
+        <div>
+          <div className="eyebrow">A CLEARER OPERATING MODEL</div>
+          <h2>
+            One operating layer
+            <br />
+            for every workforce need.
+          </h2>
+        </div>
+        <p>
+          The work is connected. Payroll inputs shape statutory records, site
+          changes affect reporting, and contractor documents need the same
+          follow-through as employee records.
+        </p>
+      </div>
+      <div className="capability-grid">
+        {capabilities.map(({ index, label, title, desc, flow, icon: Icon }) => (
+          <article className="capability-card" key={label}>
+            <div className="capability-topline">
+              <span className="capability-index">{index}</span>
+              <Icon size={21} />
+            </div>
+            <span className="capability-label">{label}</span>
+            <h3>{title}</h3>
+            <p>{desc}</p>
+            <div className="capability-flow" aria-label={`${label} process`}>
+              {flow.map((step, i) => (
+                <span key={step}>
+                  {step}
+                  {i < flow.length - 1 && <ArrowRight size={13} />}
+                </span>
+              ))}
+            </div>
+          </article>
+        ))}
+      </div>
+      <div className="operating-strip">
+        <div>
+          <span className="eyebrow">WHO STAYS IN THE LOOP</span>
+          <strong>
+            Central teams, site teams, contractors and leadership.
+          </strong>
+        </div>
+        <div className="operating-roles">
+          {[
+            ['Central HR', ShieldCheck],
+            ['Finance', Wallet],
+            ['Site operations', Building2],
+            ['Leadership', ChartNoAxesCombined],
+          ].map(([label, Icon]) => {
+            const RoleIcon = Icon as IconComponent;
+            return (
+              <span key={label as string}>
+                <RoleIcon size={15} /> {label as string}
+              </span>
+            );
+          })}
+        </div>
+      </div>
+      <div className="insight-row">
+        {[
+          [
+            'Payroll readiness',
+            'Start with your current inputs, cut-offs and approval flow.',
+          ],
+          [
+            'Compliance visibility',
+            'See what is complete, pending, owned or ready for review.',
+          ],
+          [
+            'Management reporting',
+            'Give decision-makers a short, consistent view every cycle.',
+          ],
+        ].map(([title, desc], i) => (
+          <div className="insight-card" key={title}>
+            <span>0{i + 1}</span>
+            <div>
+              <h3>{title}</h3>
+              <p>{desc}</p>
+            </div>
+            <ArrowUpRight size={16} />
+          </div>
+        ))}
+      </div>
+    </section>
   );
 }
 type ReportView = 'finance' | 'hr' | 'leadership';
@@ -870,8 +994,51 @@ function MoreSections() {
           coordination and clear reporting.
         </p>
       </section>
+      <Faq />
       <Contact />
     </>
+  );
+}
+function Faq() {
+  return (
+    <section className="faq-section wrap section">
+      <div className="faq-heading">
+        <div className="eyebrow">COMMON QUESTIONS</div>
+        <h2>Useful clarity before we begin.</h2>
+        <p>
+          A short starting point for HR and Finance teams evaluating payroll and
+          compliance support.
+        </p>
+      </div>
+      <div className="faq-list">
+        {[
+          [
+            'Who do you work with?',
+            'We work with Indian businesses that manage employees, contractors or frontline teams across more than one location.',
+          ],
+          [
+            'Can you start with an existing process?',
+            'Yes. We begin by understanding your current inputs, responsibilities, records and reporting needs before recommending a workable scope.',
+          ],
+          [
+            'Is the dashboard a software product?',
+            'The dashboard shown here is an illustrative reporting view. It demonstrates the visibility and status structure we can help you create; it is not a live software product.',
+          ],
+          [
+            'What happens after a consultation?',
+            'We review the workforce, locations and priority gaps with you, then outline the process, responsibilities and reporting that fit your operating model.',
+          ],
+        ].map(([question, answer]) => (
+          <details key={question}>
+            <summary>
+              <span>{question}</span>
+              <ArrowRight size={16} />
+            </summary>
+            <p>{answer}</p>
+          </details>
+        ))}
+      </div>
+    </section>
   );
 }
 const CONTACT_EMAIL = '';
