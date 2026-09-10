@@ -1562,6 +1562,230 @@ svg {
     justify-content: space-between;
   }
 }
+.resource-teaser {
+  padding-top: 20px;
+}
+.resource-teaser .section-heading {
+  margin-bottom: 28px;
+}
+.resource-teaser .secondary-solutions > a {
+  background: #f3f5fa;
+}
+.knowledge-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+.knowledge-grid.three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.knowledge-grid article {
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+  border: 1px solid #e0e4ef;
+  border-radius: 22px;
+}
+.knowledge-grid article > svg {
+  color: var(--coral);
+  margin-bottom: 22px;
+}
+.knowledge-grid h2 {
+  font-size: 1.55rem;
+  line-height: 1.3;
+}
+.knowledge-grid .text-link {
+  margin-top: auto;
+  padding-top: 10px;
+}
+.resource-tag {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 650;
+  color: #666f8c;
+  line-height: 1.5;
+  margin: 0 0 16px;
+}
+.information-note {
+  padding: 25px 30px;
+  border-left: 3px solid var(--coral);
+  background: #f5f6fa;
+  margin: 0 0 30px;
+  border-radius: 0 12px 12px 0;
+  line-height: 1.75;
+}
+.knowledge-grid + .information-note {
+  margin-top: 30px;
+}
+.information-note h3 {
+  font-size: 1.2rem;
+}
+.information-note p:last-child {
+  margin-bottom: 0;
+}
+.workflow-copy {
+  font-size: 0.88rem;
+  color: var(--ink);
+  background: #f1f4fa;
+  padding: 15px;
+  border-radius: 8px;
+}
+.reading-layout {
+  display: grid;
+  grid-template-columns: 230px minmax(0, 760px);
+  gap: 70px;
+  align-items: start;
+}
+.contents-nav {
+  position: sticky;
+  top: 120px;
+  border-left: 2px solid #e8ebf2;
+  padding-left: 22px;
+  display: grid;
+  gap: 14px;
+  font-size: 0.88rem;
+  color: var(--ink);
+}
+.contents-nav > span {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  color: #777f98;
+  margin-bottom: 4px;
+}
+.contents-nav a:hover {
+  color: var(--coral);
+}
+.reading-body {
+  max-width: 760px;
+}
+.reading-body section {
+  margin-bottom: 40px;
+  scroll-margin-top: 120px;
+}
+.reading-body h2 {
+  font-size: 1.7rem;
+  margin-bottom: 16px;
+}
+.reading-body h3 {
+  font-size: 1.15rem;
+  line-height: 1.4;
+}
+.reading-body ul,
+.reading-body ol {
+  padding-left: 24px;
+  list-style: revert;
+  margin: 22px 0;
+}
+.reading-body li {
+  padding-left: 7px;
+  margin-bottom: 15px;
+}
+.reading-body a:not(.button) {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  color: var(--ink);
+}
+.review-date {
+  font-size: 0.82rem;
+  color: #6b7590;
+  margin: 0 0 32px;
+}
+.code-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-top: 28px;
+}
+.code-grid > div {
+  padding: 22px;
+  background: #f2f4f9;
+  border-radius: 14px;
+}
+.code-grid p {
+  font-size: 0.95rem;
+  margin-bottom: 0;
+}
+.scenario-list {
+  display: grid;
+  gap: 28px;
+}
+.scenario-list > article {
+  padding: 38px;
+  border-radius: 24px;
+  border: 1px solid #e0e4ef;
+}
+.scenario-list h2 {
+  font-size: 1.9rem;
+}
+.scenario-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 45px;
+  margin-top: 30px;
+}
+.scenario-columns h3 {
+  font-size: 1.05rem;
+}
+.scenario-columns p {
+  margin-top: 10px;
+}
+.scenario-columns > div:last-child {
+  background: #f2f4f9;
+  padding: 25px;
+  border-radius: 12px;
+}
+.scenario-list .text-link {
+  margin-top: 22px;
+}
+@media (max-width: 860px) {
+  .knowledge-grid.three {
+    grid-template-columns: 1fr;
+  }
+  .reading-layout {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+  .contents-nav {
+    position: static;
+    grid-template-columns: 1fr 1fr;
+  }
+  .contents-nav > span {
+    grid-column: 1/-1;
+  }
+  .scenario-columns {
+    gap: 25px;
+  }
+}
+@media (max-width: 560px) {
+  .knowledge-grid,
+  .code-grid,
+  .scenario-columns {
+    grid-template-columns: 1fr;
+  }
+  .knowledge-grid article,
+  .scenario-list > article {
+    padding: 25px;
+  }
+  .information-note {
+    padding: 20px;
+  }
+  .contents-nav {
+    grid-template-columns: 1fr;
+  }
+  .reading-body h2 {
+    font-size: 1.5rem;
+  }
+  .scenario-list h2 {
+    font-size: 1.6rem;
+  }
+  .scenario-columns {
+    gap: 15px;
+  }
+  .resource-teaser {
+    padding-top: 0;
+  }
+}
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

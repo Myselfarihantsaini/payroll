@@ -18,10 +18,10 @@ import {
   BarChart3,
 } from 'lucide-react';
 import { services, industries } from './content';
-import { Contact, Legal } from './enquiry';
+import { Contact } from './enquiry';
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
-function SiteLink({
+export function SiteLink({
   href = '',
   children,
   ...props
@@ -71,6 +71,10 @@ export function Header() {
                 Services <ChevronDown size={13} />
               </SiteLink>
               <div className="nav-submenu">
+                <SiteLink href="/solutions">Solutions overview</SiteLink>
+                <SiteLink href="/products">
+                  Workforce tools & reporting
+                </SiteLink>
                 {services.map((s) => (
                   <SiteLink key={s.slug} href={'/services/' + s.slug}>
                     {s.title}
@@ -118,6 +122,8 @@ export function Footer() {
         <div>
           <h3>Explore Ordin</h3>
           <SiteLink href="/">Home</SiteLink>
+          <SiteLink href="/solutions">Solutions</SiteLink>
+          <SiteLink href="/products">Workforce tools</SiteLink>
           <SiteLink href="/industries">Industries</SiteLink>
           <SiteLink href="/about">About us</SiteLink>
           <SiteLink href="/#approach">Our approach</SiteLink>
@@ -125,16 +131,25 @@ export function Footer() {
           <SiteLink href="/contact">Contact us</SiteLink>
         </div>
         <div>
-          <h3>Let’s simplify work.</h3>
-          <p>Bring your payroll and workforce compliance into focus.</p>
-          <SiteLink href="/contact" className="button">
-            Talk to our team <ArrowRight size={16} />
+          <h3>Resources</h3>
+          <SiteLink href="/resources">Resource centre</SiteLink>
+          <SiteLink href="/resources/regulatory-insights/indias-four-labour-codes">
+            India’s four labour codes
+          </SiteLink>
+          <SiteLink href="/resources/case-studies">
+            Example case studies
+          </SiteLink>
+          <SiteLink href="/resources/notifications">
+            Regulatory notifications
           </SiteLink>
         </div>
       </div>
       <div className="container footer-bottom">
         <span>© {new Date().getFullYear()} Ordin. All rights reserved.</span>
-        <Legal />
+        <div className="legal-links">
+          <SiteLink href="/privacy-policy">Privacy Policy</SiteLink>
+          <SiteLink href="/terms-of-use">Terms of Use</SiteLink>
+        </div>
       </div>
     </footer>
   );
@@ -231,6 +246,7 @@ export function HomePage() {
     <Shell>
       <section className="container photo-hero">
         <Image
+          unoptimized
           src={basePath + '/images/workforce-hero.jpg'}
           alt="Workforce analytics reviewed by a payroll professional"
           width="1536"
@@ -407,6 +423,52 @@ export function HomePage() {
           </ul>
           <SiteLink className="button" href="/about">
             Why Ordin <ArrowRight size={17} />
+          </SiteLink>
+        </div>
+      </section>
+      <section className="container section resource-teaser">
+        <div className="section-heading">
+          <span className="eyebrow">WORKFORCE KNOWLEDGE</span>
+          <h2>Clarity for your next decision.</h2>
+          <p>Practical reading for HR, Finance and compliance teams.</p>
+        </div>
+        <div className="secondary-solutions">
+          <SiteLink href="/resources/regulatory-insights/indias-four-labour-codes">
+            <ShieldCheck />
+            <h3>India’s four labour codes</h3>
+            <p>
+              A plain-language introduction and an operational review checklist.
+            </p>
+            <span>
+              Read the overview <ArrowRight size={16} />
+            </span>
+          </SiteLink>
+          <SiteLink href="/resources/case-studies">
+            <Users />
+            <h3>Workforce scenarios</h3>
+            <p>
+              Explore example approaches to fragmented inputs, contractor
+              records and business change.
+            </p>
+            <span>
+              Explore examples <ArrowRight size={16} />
+            </span>
+          </SiteLink>
+          <SiteLink href="/resources/notifications">
+            <FileCheck2 />
+            <h3>Regulatory sources</h3>
+            <p>
+              Find official notices and organise the actions that matter to your
+              locations.
+            </p>
+            <span>
+              View sources <ArrowRight size={16} />
+            </span>
+          </SiteLink>
+        </div>
+        <div className="section-end">
+          <SiteLink className="text-link" href="/resources">
+            Visit the resource centre <ArrowRight size={17} />
           </SiteLink>
         </div>
       </section>
@@ -784,6 +846,21 @@ export function AboutPage() {
             Our work connects HR, Finance, site teams and contractors, with a
             practical focus on recurring operations and the records that support
             them.
+          </p>
+          <h3>Global outlook. Local requirements.</h3>
+          <p>
+            As organisations add locations, payroll calendars, workforce
+            categories and reporting needs become more complex. We start by
+            mapping those differences and agreeing the work that each team owns.
+            Country-specific requirements and delivery coverage are assessed for
+            each engagement.
+          </p>
+          <h3>How we work together</h3>
+          <p>
+            Bring us your current process and the gaps you want to address.
+            Together, we define inputs, review controls, escalation paths and
+            reporting. A named owner for each action helps your teams follow
+            issues through to closure.
           </p>
         </div>
         <div className="about-principles">
