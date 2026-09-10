@@ -25,22 +25,21 @@ import {
 import { services } from './content';
 const CONTACT_EMAIL = '';
 export function Contact() {
-  const [service, setService] = useState<string | null>(null);
-  const [message, setMessage] = useState('');
+  const [service, setService] = useState<string | null>(() => {
+    if (typeof window === 'undefined') return null;
+    const value = new URLSearchParams(window.location.search).get('service');
+    return services.some((item) => item.title === value) ? value : null;
+  });
+  const [message, setMessage] = useState(() => {
+    if (typeof window === 'undefined') return '';
+    const value = new URLSearchParams(window.location.search).get('industry');
+    return value
+      ? `I would like to discuss payroll and compliance support for our ${value.toLowerCase()} business.`
+      : '';
+  });
   const [feedback, setFeedback] = useState('');
   const [draft, setDraft] = useState('');
   useEffect(() => {
-    const query = new URLSearchParams(window.location.search);
-    const requestedService = query.get('service');
-    if (services.some((item) => item.title === requestedService)) {
-      setService(requestedService);
-    }
-    const requestedIndustry = query.get('industry');
-    if (requestedIndustry) {
-      setMessage(
-        `I would like to discuss payroll and compliance support for our ${requestedIndustry.toLowerCase()} business.`,
-      );
-    }
     const pick = (e: Event) => setService((e as CustomEvent<string>).detail);
     const industry = (e: Event) =>
       setMessage(
@@ -125,7 +124,7 @@ export function Contact() {
             </span>
           </div>
           <div className="contact-location">
-            <Building2 size={16} /> Supporting businesses across India
+            <Building2 size={16} /> Supporting businesses around the globe
           </div>
         </div>
         <form className="contact-form" onSubmit={submit}>

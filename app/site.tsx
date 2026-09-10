@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import type { AnchorHTMLAttributes } from 'react';
+import Image from 'next/image';
 import {
   ArrowRight,
   ChevronDown,
@@ -22,11 +23,16 @@ import { Contact, Legal } from './enquiry';
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 function SiteLink({
   href = '',
+  children,
   ...props
 }: AnchorHTMLAttributes<HTMLAnchorElement>) {
   const target =
     href.startsWith('/') && !href.startsWith('//') ? basePath + href : href;
-  return <a {...props} href={target} />;
+  return (
+    <a {...props} href={target}>
+      {children}
+    </a>
+  );
 }
 
 export function Header() {
@@ -98,7 +104,7 @@ export function Footer() {
             Workforce Operations
           </p>
           <span className="footer-country">
-            <MapPin size={16} /> Supporting businesses in India
+            <MapPin size={16} /> Supporting businesses around the globe
           </span>
         </div>
         <div>
@@ -145,7 +151,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
 const faqs = [
   [
     'What does Ordin do?',
-    'Ordin supports Indian businesses with payroll management, statutory and labour compliance, contractor compliance, compliance audits and HR operations.',
+    'Ordin supports businesses around the globe with payroll management, statutory and labour compliance, contractor compliance, compliance audits and HR operations.',
   ],
   [
     'Who are these services designed for?',
@@ -224,7 +230,7 @@ export function HomePage() {
   return (
     <Shell>
       <section className="container photo-hero">
-        <img
+        <Image
           src={basePath + '/images/workforce-hero.jpg'}
           alt="Workforce analytics reviewed by a payroll professional"
           width="1536"
@@ -242,7 +248,7 @@ export function HomePage() {
           </h1>
           <p>
             We help HR and Finance leaders simplify payroll and compliance for
-            large, multi-location frontline workforces across India.
+            large, multi-location frontline workforces around the globe.
           </p>
           <div className="hero-actions">
             <SiteLink className="button" href="/services">
@@ -770,9 +776,9 @@ export function AboutPage() {
             We help organise the work behind them.
           </h2>
           <p>
-            We help Indian businesses simplify payroll and workforce compliance
-            through structured processes, reliable operations and clear
-            reporting.
+            We help businesses around the globe simplify payroll and workforce
+            compliance through structured processes, reliable operations and
+            clear reporting.
           </p>
           <p>
             Our work connects HR, Finance, site teams and contractors, with a
