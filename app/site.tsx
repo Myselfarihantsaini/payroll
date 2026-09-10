@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import type { AnchorHTMLAttributes } from 'react';
 import {
   ArrowRight,
   ChevronDown,
@@ -18,22 +19,32 @@ import {
 import { services, industries } from './content';
 import { Contact, Legal } from './enquiry';
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+function SiteLink({
+  href = '',
+  ...props
+}: AnchorHTMLAttributes<HTMLAnchorElement>) {
+  const target =
+    href.startsWith('/') && !href.startsWith('//') ? basePath + href : href;
+  return <a {...props} href={target} />;
+}
+
 export function Header() {
   const [open, setOpen] = useState(false);
   return (
     <>
-      <a className="skip-link" href="#main">
+      <SiteLink className="skip-link" href="#main">
         Skip to content
-      </a>
+      </SiteLink>
       <header className="site-header">
         <div className="header-inner">
-          <a className="wordmark" href="/" aria-label="Ordin home">
+          <SiteLink className="wordmark" href="/" aria-label="Ordin home">
             <span className="logo-symbol">o</span>
             <span>
               ordin<span className="logo-stop">.</span>
               <small>PAYROLL & COMPLIANCE</small>
             </span>
-          </a>
+          </SiteLink>
           <button
             className="mobile-toggle"
             aria-label={open ? 'Close navigation' : 'Open navigation'}
@@ -48,26 +59,26 @@ export function Header() {
             className={open ? 'site-nav is-open' : 'site-nav'}
             aria-label="Main navigation"
           >
-            <a href="/">Home</a>
+            <SiteLink href="/">Home</SiteLink>
             <div className="nav-group">
-              <a href="/services">
+              <SiteLink href="/services">
                 Services <ChevronDown size={13} />
-              </a>
+              </SiteLink>
               <div className="nav-submenu">
                 {services.map((s) => (
-                  <a key={s.slug} href={'/services/' + s.slug}>
+                  <SiteLink key={s.slug} href={'/services/' + s.slug}>
                     {s.title}
-                  </a>
+                  </SiteLink>
                 ))}
               </div>
             </div>
-            <a href="/industries">Industries</a>
-            <a href="/about">About</a>
-            <a href="/contact">Contact</a>
+            <SiteLink href="/industries">Industries</SiteLink>
+            <SiteLink href="/about">About</SiteLink>
+            <SiteLink href="/contact">Contact</SiteLink>
           </nav>
-          <a href="/contact" className="button header-action">
+          <SiteLink href="/contact" className="button header-action">
             Book a Consultation
-          </a>
+          </SiteLink>
         </div>
       </header>
     </>
@@ -78,9 +89,9 @@ export function Footer() {
     <footer className="site-footer">
       <div className="container footer-grid">
         <div>
-          <a className="wordmark" href="/">
+          <SiteLink className="wordmark" href="/">
             ordin<span className="logo-stop">.</span>
-          </a>
+          </SiteLink>
           <p>
             Payroll | Compliance
             <br />
@@ -93,26 +104,26 @@ export function Footer() {
         <div>
           <h3>Our services</h3>
           {services.map((s) => (
-            <a key={s.slug} href={'/services/' + s.slug}>
+            <SiteLink key={s.slug} href={'/services/' + s.slug}>
               {s.title}
-            </a>
+            </SiteLink>
           ))}
         </div>
         <div>
           <h3>Explore Ordin</h3>
-          <a href="/">Home</a>
-          <a href="/industries">Industries</a>
-          <a href="/about">About us</a>
-          <a href="/#approach">Our approach</a>
-          <a href="/#faqs">FAQs</a>
-          <a href="/contact">Contact us</a>
+          <SiteLink href="/">Home</SiteLink>
+          <SiteLink href="/industries">Industries</SiteLink>
+          <SiteLink href="/about">About us</SiteLink>
+          <SiteLink href="/#approach">Our approach</SiteLink>
+          <SiteLink href="/#faqs">FAQs</SiteLink>
+          <SiteLink href="/contact">Contact us</SiteLink>
         </div>
         <div>
           <h3>Let’s simplify work.</h3>
           <p>Bring your payroll and workforce compliance into focus.</p>
-          <a href="/contact" className="button">
+          <SiteLink href="/contact" className="button">
             Talk to our team <ArrowRight size={16} />
-          </a>
+          </SiteLink>
         </div>
       </div>
       <div className="container footer-bottom">
@@ -197,9 +208,9 @@ export function Callout() {
           Start with a conversation about your people, locations and operating
           challenges.
         </p>
-        <a className="button" href="/contact">
+        <SiteLink className="button" href="/contact">
           Book a Consultation <ArrowRight size={17} />
-        </a>
+        </SiteLink>
       </div>
       <div className="closing-motif" aria-hidden="true">
         <span />
@@ -214,7 +225,7 @@ export function HomePage() {
     <Shell>
       <section className="container photo-hero">
         <img
-          src="/images/workforce-hero.jpg"
+          src={basePath + '/images/workforce-hero.jpg'}
           alt="Workforce analytics reviewed by a payroll professional"
           width="1536"
           height="1024"
@@ -234,12 +245,12 @@ export function HomePage() {
             large, multi-location frontline workforces across India.
           </p>
           <div className="hero-actions">
-            <a className="button" href="/services">
+            <SiteLink className="button" href="/services">
               Explore Services
-            </a>
-            <a className="button outline" href="/contact">
+            </SiteLink>
+            <SiteLink className="button outline" href="/contact">
               Contact Us
-            </a>
+            </SiteLink>
           </div>
         </div>
       </section>
@@ -257,9 +268,9 @@ export function HomePage() {
             From monthly payroll to contractor documentation, Ordin brings
             structure to the work behind your workforce.
           </p>
-          <a className="text-link" href="/about">
+          <SiteLink className="text-link" href="/about">
             Meet Ordin <ArrowRight size={17} />
-          </a>
+          </SiteLink>
         </div>
       </section>
       <section className="container outcomes">
@@ -315,14 +326,14 @@ export function HomePage() {
           {[2, 4, 5].map((i) => {
             const s = services[i];
             return (
-              <a href={'/services/' + s.slug} key={s.slug}>
+              <SiteLink href={'/services/' + s.slug} key={s.slug}>
                 <s.icon size={29} />
                 <h3>{s.title}</h3>
                 <p>{s.desc}</p>
                 <span>
                   Explore service <ArrowRight size={17} />
                 </span>
-              </a>
+              </SiteLink>
             );
           })}
         </div>
@@ -388,9 +399,9 @@ export function HomePage() {
               Reporting shaped for HR and Finance
             </li>
           </ul>
-          <a className="button" href="/about">
+          <SiteLink className="button" href="/about">
             Why Ordin <ArrowRight size={17} />
-          </a>
+          </SiteLink>
         </div>
       </section>
       <Faq />
@@ -408,9 +419,9 @@ export function HomePage() {
             contractor requirements.
           </p>
         </div>
-        <a className="button" href="/contact?service=Compliance%20Audit">
+        <SiteLink className="button" href="/contact?service=Compliance%20Audit">
           Request a Compliance Review <ArrowRight size={17} />
-        </a>
+        </SiteLink>
       </section>
     </Shell>
   );
@@ -437,9 +448,9 @@ function SolutionPanel({ index }: { index: number }) {
             <span key={t}>{t}</span>
           ))}
         </div>
-        <a className="button" href={'/services/' + s.slug}>
+        <SiteLink className="button" href={'/services/' + s.slug}>
           Explore {s.title} <ArrowRight size={16} />
-        </a>
+        </SiteLink>
       </div>
       <div className="solution-visual">
         <ReportPreview
@@ -553,7 +564,7 @@ export function IndustryGrid() {
       </div>
       <div className="industry-grid">
         {industries.map((i) => (
-          <a
+          <SiteLink
             key={i.slug}
             href={'/industries/' + i.slug}
             className="industry-card"
@@ -565,13 +576,13 @@ export function IndustryGrid() {
             <span>
               View solutions <ArrowRight size={16} />
             </span>
-          </a>
+          </SiteLink>
         ))}
       </div>
       <div className="section-end">
-        <a href="/contact" className="button">
+        <SiteLink href="/contact" className="button">
           Talk to our team <ArrowRight size={17} />
-        </a>
+        </SiteLink>
       </div>
     </section>
   );
@@ -588,7 +599,7 @@ export function PageHero({
   return (
     <section className="container page-hero">
       <div>
-        <a href="/">Home</a>
+        <SiteLink href="/">Home</SiteLink>
         <span>/</span>
         <span>{label}</span>
       </div>
@@ -608,14 +619,14 @@ export function ServicesPage() {
       <section className="container section">
         <div className="service-directory">
           {services.map((s) => (
-            <a key={s.slug} href={'/services/' + s.slug}>
+            <SiteLink key={s.slug} href={'/services/' + s.slug}>
               <s.icon />
               <h2>{s.title}</h2>
               <p>{s.desc}</p>
               <span className="text-link">
                 Explore service <ArrowRight size={17} />
               </span>
-            </a>
+            </SiteLink>
           ))}
         </div>
       </section>
@@ -642,12 +653,12 @@ export function ServicePage({ slug }: { slug: string }) {
               </li>
             ))}
           </ul>
-          <a
+          <SiteLink
             className="button"
             href={'/contact?service=' + encodeURIComponent(s.title)}
           >
             Discuss your requirements <ArrowRight size={16} />
-          </a>
+          </SiteLink>
         </div>
         <ReportPreview
           type={
@@ -681,10 +692,10 @@ export function ServicePage({ slug }: { slug: string }) {
           {services
             .filter((x) => x.slug !== slug)
             .map((x) => (
-              <a key={x.slug} href={'/services/' + x.slug}>
+              <SiteLink key={x.slug} href={'/services/' + x.slug}>
                 {x.title}
                 <ArrowRight size={16} />
-              </a>
+              </SiteLink>
             ))}
         </div>
       </section>
@@ -718,12 +729,12 @@ export function IndustryPage({ slug }: { slug: string }) {
               </li>
             ))}
           </ul>
-          <a
+          <SiteLink
             className="button"
             href={'/contact?industry=' + encodeURIComponent(item.name)}
           >
             Discuss your workforce <ArrowRight size={17} />
-          </a>
+          </SiteLink>
         </div>
         <ReportPreview type="overview" />
       </section>
@@ -731,10 +742,10 @@ export function IndustryPage({ slug }: { slug: string }) {
         <h2>Services for your operations</h2>
         <div className="related-links">
           {services.map((s) => (
-            <a key={s.slug} href={'/services/' + s.slug}>
+            <SiteLink key={s.slug} href={'/services/' + s.slug}>
               {s.title}
               <ArrowRight size={16} />
-            </a>
+            </SiteLink>
           ))}
         </div>
       </section>

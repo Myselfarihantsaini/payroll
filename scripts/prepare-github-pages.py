@@ -15,9 +15,15 @@ for entry in source.iterdir():
     else:
         shutil.copy2(entry, target / entry.name)
 for path in target.rglob('*'):
-    if path.suffix in ('.html', '.css', '.js', '.rsc', '.json'):
+    if path.suffix in ('.html', '.css', '.js', '.rsc', '.json') and '.git' not in path.parts:
         value = path.read_text()
         value = value.replace('/_next/', '/payroll/_next/').replace('"/favicon.svg"', '"/payroll/favicon.svg"')
         path.write_text(value)
+# GitHub Pages serves directory indexes, including nested service pages.
+for page in list(target.rglob('*.html')):
+    if page.name not in ('index.html', '404.html'):
+        directory = page.with_suffix('')
+        directory.mkdir(exist_ok=True)
+        shutil.copy2(page, directory / 'index.html')
 (target / '.nojekyll').touch()
 print(target.resolve())
