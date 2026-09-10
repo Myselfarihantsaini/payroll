@@ -27,6 +27,7 @@ import {
   LockKeyhole,
 } from 'lucide-react';
 import { Progress } from '@/components/ui/progress';
+import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import {
   Table,
   TableHeader,
@@ -96,17 +97,16 @@ export default function Home() {
         <section className="hero wrap">
           <div className="hero-copy">
             <div className="eyebrow">
-              <span className="green-dot" /> PAYROLL & WORKFORCE COMPLIANCE ·
-              INDIA
+              <span className="green-dot" /> FOR ENTERPRISE HR & FINANCE LEADERS
             </div>
             <h1>
-              Payroll & Compliance.
+              Payroll & compliance.
               <br />
-              <span>Simplified.</span>
+              <span>Across every location.</span>
             </h1>
             <p>
-              We manage payroll, statutory compliance and workforce operations
-              so you can focus on running your business.
+              We help HR and Finance leaders simplify payroll and compliance for
+              large, multi-location frontline workforces across India.
             </p>
             <div className="cta-row">
               <a className="button" href="#contact">
@@ -117,14 +117,14 @@ export default function Home() {
               </a>
             </div>
             <div className="hero-foot">
-              <ShieldCheck size={17} /> Managed by people. Supported by clear
-              reporting.
+              <ShieldCheck size={17} /> Site-level coordination. Central
+              oversight.
             </div>
           </div>
           <div className="hero-visual">
             <Dashboard />
             <div className="visual-caption">
-              Illustrative reporting view · Sample data, not a software product
+              Illustrative reporting view · Sample workforce and locations
             </div>
           </div>
         </section>
@@ -133,23 +133,23 @@ export default function Home() {
             [
               [
                 Wallet,
-                'Accurate Payroll',
-                'Reliable monthly payroll operations.',
+                'Bring inputs together',
+                'Consolidate site-wise attendance, employee changes and payroll inputs.',
               ],
               [
                 ShieldCheck,
-                'Compliance Management',
-                'Structured statutory and labour compliance support.',
+                'Coordinate compliance',
+                'Track requirements, records and outstanding actions by establishment.',
               ],
               [
                 Users,
-                'Contractor Control',
-                'Track contractor documentation and workforce compliance.',
+                'Keep contractors in view',
+                'See which contractor records are verified and which need follow-up.',
               ],
               [
                 ChartNoAxesCombined,
-                'Clear Reporting',
-                'Know exactly what is complete, pending and at risk.',
+                'Give leaders clarity',
+                'Bring payroll status and site-level exceptions into one management view.',
               ],
             ] as Array<[IconComponent, string, string]>
           ).map(([Icon, title, desc]) => (
@@ -165,14 +165,14 @@ export default function Home() {
             <div>
               <div className="eyebrow">WHAT WE DO</div>
               <h2>
-                Your workforce operations.
+                From site inputs
                 <br />
-                Taken care of.
+                to management reporting.
               </h2>
             </div>
             <p>
-              Six connected services. One accountable partner for your payroll,
-              people and compliance.
+              Six connected services for your central HR team, Finance team and
+              local operations. Scope shaped around your workforce.
             </p>
           </div>
           <Services />
@@ -228,8 +228,8 @@ function Dashboard() {
         </div>
         <div className="dash-intro">
           <div>
-            <h3>Everything in view.</h3>
-            <p>Your people, payroll and compliance status.</p>
+            <h3>Many locations. One view.</h3>
+            <p>Payroll, workforce records and exceptions by site.</p>
           </div>
           <span className="status">
             <Check size={14} /> Payroll completed
@@ -241,7 +241,7 @@ function Dashboard() {
               <Users size={16} /> Employees
             </span>
             <strong>186</strong>
-            <small>Active workforce</small>
+            <small>Across 4 sample locations</small>
           </div>
           <div>
             <span>
@@ -268,6 +268,29 @@ function Dashboard() {
             <small>Open issues to review</small>
           </div>
         </div>
+        <div
+          className="site-summary"
+          aria-label="Illustrative workforce by location"
+        >
+          <div className="site-summary-title">
+            <span>LOCATION VIEW</span>
+            <span>Employees / open issues</span>
+          </div>
+          <div className="site-grid">
+            {[
+              ['Plant', '64', '3 issues'],
+              ['Warehouse', '52', '2 issues'],
+              ['Project site', '42', '2 issues'],
+              ['Regional office', '28', 'No open issues'],
+            ].map(([site, count, issues]) => (
+              <div key={site}>
+                <span>{site}</span>
+                <strong>{count}</strong>
+                <small>{issues}</small>
+              </div>
+            ))}
+          </div>
+        </div>
         <div className="dash-footer">
           <span>
             <ShieldCheck size={16} /> Compliance health
@@ -290,36 +313,45 @@ const services = [
   {
     icon: Wallet,
     title: 'Payroll Management',
-    audience: 'Businesses looking for reliable recurring payroll support.',
+    audience:
+      'HR and Finance teams coordinating monthly payroll across plants, branches and sites.',
+    inputs:
+      'Employee master, attendance and leave inputs, salary changes and approved adjustments.',
     deliverable:
-      'A monthly payroll summary, payslips and settlement records for review.',
-    desc: 'Monthly payroll, salary calculations, payslips, F&F and reporting.',
+      'Consolidated and site-wise payroll summaries, payslips and full-and-final settlement records.',
+    desc: 'Site-wise inputs, salary calculations, payslips and consolidated payroll reporting.',
     items: [
-      'Monthly salary calculations and processing',
-      'Payslips and payroll reporting',
-      'Full and final settlement support',
+      'Consolidation and review of payroll inputs from each site',
+      'Salary calculations and exception review for approval',
+      'Payslips, payroll reports and full-and-final settlement support',
     ],
   },
   {
     icon: ShieldCheck,
     title: 'Statutory Compliance',
-    audience: 'Employers managing PF, ESI and payroll-related requirements.',
+    audience:
+      'Central HR and Finance teams coordinating payroll-related statutory requirements.',
+    inputs:
+      'Payroll records, establishment details and existing contribution documentation.',
     deliverable:
-      'An organised record of statutory documentation, completed requirements and pending actions.',
-    desc: 'PF, ESI and payroll-related statutory compliance support.',
+      'An establishment-wise status summary with supporting records and outstanding actions.',
+    desc: 'PF, ESI and payroll-related requirements, with establishment-wise tracking.',
     items: [
       'PF and ESI compliance coordination',
-      'Payroll-related statutory documentation',
-      'Recurring compliance tracking',
+      'Payroll-related documentation organised by establishment',
+      'Tracking of recurring requirements and pending records',
     ],
   },
   {
     icon: FileCheck2,
     title: 'Labour Compliance',
-    audience: 'Businesses maintaining workforce records across establishments.',
+    audience:
+      'HR and site operations teams managing workforce records across locations.',
+    inputs:
+      'Location details, employee records, wage information and existing registers.',
     deliverable:
-      'Structured employee records and registers, with exceptions clearly identified.',
-    desc: 'Employee records, registers, wage requirements and establishment compliance.',
+      'Site-wise records and registers, with documentation gaps and follow-up actions identified.',
+    desc: 'Workforce records, wage requirements and registers organised by location.',
     items: [
       'Employee records and registers',
       'Wage requirement checks',
@@ -329,10 +361,13 @@ const services = [
   {
     icon: Users,
     title: 'Contractor Compliance',
-    audience: 'Businesses working with contractors or a distributed workforce.',
+    audience:
+      'Enterprises coordinating contractors and frontline teams across multiple sites.',
+    inputs:
+      'Contractor list, site allocations, workforce records and available compliance documents.',
     deliverable:
       'A contractor-wise documentation tracker with verification status and missing records.',
-    desc: 'Contractor documentation, workforce records and compliance verification.',
+    desc: 'Contractor-wise records, document verification and site-level follow-up.',
     items: [
       'Contractor documentation review',
       'Workforce record verification',
@@ -342,10 +377,13 @@ const services = [
   {
     icon: ClipboardCheck,
     title: 'Compliance Audit',
-    audience: 'Teams that need to understand gaps before deciding what to fix.',
+    audience:
+      'HR and Finance leaders seeking a clear view of gaps across their workforce operations.',
+    inputs:
+      'An agreed list of establishments, payroll records and employee or contractor documents.',
     deliverable:
       'A prioritised findings report covering missing documentation, risks and next steps.',
-    desc: 'Identify gaps, risks and missing documentation.',
+    desc: 'Review gaps across locations and turn findings into prioritised actions.',
     items: [
       'Payroll and workforce compliance review',
       'Document gap identification',
@@ -355,10 +393,13 @@ const services = [
   {
     icon: Building2,
     title: 'HR Operations',
-    audience: 'Growing teams managing recurring employee administration.',
+    audience:
+      'Central HR teams coordinating joiners, employee changes and exits with local teams.',
+    inputs:
+      'Employee information, joiner and exit details, and approved workforce changes.',
     deliverable:
       'Organised employee documentation and a clear view of pending onboarding and exit actions.',
-    desc: 'Onboarding, exits, documentation and recurring HR administration.',
+    desc: 'Joiners, exits and employee documentation coordinated across sites.',
     items: [
       'Employee onboarding and exit documentation',
       'Employee record maintenance',
@@ -399,10 +440,18 @@ function Services() {
                 </li>
               ))}
             </ul>
+            <div className="service-audience">
+              <h3 className="service-detail-label">What we start with</h3>
+              <p>{s.inputs}</p>
+            </div>
             <div className="service-deliverable">
               <h3 className="service-detail-label">What you receive</h3>
               <p>{s.deliverable}</p>
             </div>
+            <p className="service-scope">
+              Coverage, responsibilities and reporting formats are agreed during
+              assessment.
+            </p>
             <DialogClose
               className="button"
               onClick={() => {
@@ -430,6 +479,7 @@ const reportData: Record<
   ReportView,
   Array<{
     requirement: string;
+    scope: string;
     status: string;
     owner: string;
     action: string;
@@ -439,18 +489,21 @@ const reportData: Record<
   finance: [
     {
       requirement: 'Payroll summary',
+      scope: 'All 4 locations',
       status: 'Completed',
       owner: 'Payroll team',
-      action: 'Review salary summary',
+      action: 'Review consolidated and site-wise totals',
     },
     {
       requirement: 'PF / ESI records',
+      scope: 'Establishment records',
       status: 'Compliant',
       owner: 'Compliance team',
       action: 'Retain verified records',
     },
     {
       requirement: 'Contractor documents',
+      scope: 'Warehouse / project site',
       status: 'Pending',
       owner: 'Contractor',
       action: 'Supply missing records',
@@ -458,6 +511,7 @@ const reportData: Record<
     },
     {
       requirement: 'Wage register',
+      scope: 'Plant',
       status: 'In review',
       owner: 'Compliance team',
       action: 'Resolve record exceptions',
@@ -467,18 +521,21 @@ const reportData: Record<
   hr: [
     {
       requirement: 'New joiner records',
+      scope: 'Plant / warehouse',
       status: 'Completed',
-      owner: 'HR team',
+      owner: 'Site HR',
       action: 'Review 3 new records',
     },
     {
       requirement: 'Employee changes',
+      scope: 'All 4 locations',
       status: 'Completed',
       owner: 'HR team',
       action: 'Confirm monthly updates',
     },
     {
       requirement: 'Contractor documents',
+      scope: 'Warehouse / project site',
       status: 'Pending',
       owner: 'Contractor',
       action: 'Supply missing records',
@@ -486,6 +543,7 @@ const reportData: Record<
     },
     {
       requirement: 'Exit documentation',
+      scope: 'Project site',
       status: 'In review',
       owner: 'HR team',
       action: 'Close 2 open files',
@@ -495,12 +553,14 @@ const reportData: Record<
   leadership: [
     {
       requirement: 'Monthly payroll',
+      scope: '186 employees / 4 locations',
       status: 'Completed',
       owner: 'Payroll team',
       action: 'No action required',
     },
     {
       requirement: 'Compliance exceptions',
+      scope: '3 locations with open issues',
       status: '7 open',
       owner: 'Compliance team',
       action: 'Review priority actions',
@@ -508,6 +568,7 @@ const reportData: Record<
     },
     {
       requirement: 'Contractor records',
+      scope: '4 contractors',
       status: 'Pending',
       owner: 'Operations',
       action: 'Assign document owners',
@@ -515,6 +576,7 @@ const reportData: Record<
     },
     {
       requirement: 'Audit actions',
+      scope: 'Site-wise follow-up',
       status: 'In review',
       owner: 'Compliance team',
       action: 'Track closure status',
@@ -523,32 +585,41 @@ const reportData: Record<
   ],
 };
 function MoreSections() {
-  const [reportView, setReportView] = useState<ReportView>('finance');
-  const reportRows = reportData[reportView];
   return (
     <>
       <section className="process-section">
         <div className="wrap section">
           <div className="section-heading">
             <div>
-              <div className="eyebrow">HOW IT WORKS</div>
-              <h2>A clear process. From day one.</h2>
+              <div className="eyebrow">OUR OPERATING APPROACH</div>
+              <h2>Local inputs. A coordinated process.</h2>
             </div>
             <p>
-              Five connected steps.
-              <br />
-              Nothing left to guesswork.
+              Agree the responsibilities, review points and reporting your teams
+              need before operations begin.
             </p>
           </div>
           <div className="process-grid">
             {[
-              ['Assess', 'Understand workforce and compliance requirements.'],
-              ['Setup', 'Structure payroll, employee and contractor data.'],
-              ['Manage', 'Handle recurring payroll and compliance operations.'],
-              ['Monitor', 'Track exceptions and missing requirements.'],
+              [
+                'Assess',
+                'Map locations, workforce groups, contractors and existing workflows.',
+              ],
+              [
+                'Setup',
+                'Agree data formats, site owners, cut-offs and approval responsibilities.',
+              ],
+              [
+                'Manage',
+                'Coordinate inputs, payroll processing and recurring compliance work.',
+              ],
+              [
+                'Monitor',
+                'Track missing records and exceptions with the responsible teams.',
+              ],
               [
                 'Report',
-                'Provide clear management-level compliance visibility.',
+                'Bring site-wise status, open actions and supporting records together.',
               ],
             ].map(([title, desc], i) => (
               <div className="process-step" key={title}>
@@ -565,25 +636,27 @@ function MoreSections() {
       </section>
       <section className="wrap section visibility-section">
         <div className="visibility-copy">
-          <div className="eyebrow">SEE THE BIGGER PICTURE</div>
+          <div className="eyebrow">VISIBILITY FOR EVERY DECISION-MAKER</div>
           <h2>
-            Clear records.
+            Close to the details.
             <br />
-            Clear next steps.
+            Across the business.
           </h2>
           <p>
-            See what’s complete, what needs attention and who owns the next
-            action.
+            HR needs complete employee records. Finance needs reviewed payroll
+            inputs and outputs. Leadership needs a clear view of exceptions
+            across locations.
           </p>
           <div className="visibility-checks">
             <span>
-              <CircleCheck /> Finance: payroll summaries ready for review
+              <CircleCheck /> Finance: site-wise payroll summaries and approvals
             </span>
             <span>
-              <CircleCheck /> HR: employee and contractor record visibility
+              <CircleCheck /> HR: joiners, exits and contractor documentation
             </span>
             <span>
-              <CircleCheck /> Leadership: prioritised issues and next steps
+              <CircleCheck /> Leadership: locations, open issues and action
+              owners
             </span>
           </div>
           <a className="text-link" href="#contact">
@@ -607,51 +680,51 @@ function MoreSections() {
             </div>
             <ClipboardCheck size={28} />
           </div>
-          <div
-            className="report-tabs"
-            role="tablist"
-            aria-label="Reporting views"
-          >
-            {(['finance', 'hr', 'leadership'] as ReportView[]).map((view) => (
-              <button
-                key={view}
-                type="button"
-                role="tab"
-                aria-selected={reportView === view}
-                className={
-                  reportView === view ? 'report-tab active' : 'report-tab'
-                }
-                onClick={() => setReportView(view)}
-              >
-                {reportLabels[view]}
-              </button>
-            ))}
-          </div>
-          <Table className="report-table">
-            <TableHeader>
-              <TableRow>
-                <TableHead scope="col">Requirement</TableHead>
-                <TableHead scope="col">Status</TableHead>
-                <TableHead scope="col">Owner / next action</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {reportRows.map((row) => (
-                <TableRow key={row.requirement}>
-                  <TableCell>{row.requirement}</TableCell>
-                  <TableCell>
-                    <span className={'status ' + (row.tone || '')}>
-                      {row.status}
-                    </span>
-                  </TableCell>
-                  <TableCell>
-                    <strong>{row.owner}</strong>
-                    <small>{row.action}</small>
-                  </TableCell>
-                </TableRow>
+          <Tabs defaultValue="finance" className="report-views">
+            <TabsList
+              className="report-tabs"
+              aria-label="Reporting views"
+              variant="line"
+            >
+              {(['finance', 'hr', 'leadership'] as ReportView[]).map((view) => (
+                <TabsTrigger key={view} value={view} className="report-tab">
+                  {reportLabels[view]}
+                </TabsTrigger>
               ))}
-            </TableBody>
-          </Table>
+            </TabsList>
+            {(['finance', 'hr', 'leadership'] as ReportView[]).map((view) => (
+              <TabsContent key={view} value={view} className="report-panel">
+                <Table className="report-table">
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead scope="col">Requirement</TableHead>
+                      <TableHead scope="col">Status</TableHead>
+                      <TableHead scope="col">Owner / next action</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {reportData[view].map((row) => (
+                      <TableRow key={row.requirement}>
+                        <TableCell>
+                          {row.requirement}
+                          <small>{row.scope}</small>
+                        </TableCell>
+                        <TableCell>
+                          <span className={'status ' + (row.tone || '')}>
+                            {row.status}
+                          </span>
+                        </TableCell>
+                        <TableCell>
+                          <strong>{row.owner}</strong>
+                          <small>{row.action}</small>
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </TabsContent>
+            ))}
+          </Tabs>
           <div className="document-progress">
             <div>
               <span>Documents complete</span>
@@ -668,17 +741,16 @@ function MoreSections() {
       <section className="wrap section industries" id="industries">
         <div className="section-heading">
           <div>
-            <div className="eyebrow">WHO WE SUPPORT</div>
+            <div className="eyebrow">WHERE FRONTLINE WORK HAPPENS</div>
             <h2>
-              Different industries.
+              Frontline workforces.
               <br />
-              The same need for clarity.
+              Across industries.
             </h2>
           </div>
           <p>
-            Support shaped around your people,
-            <br />
-            your operations and your industry.
+            Payroll and compliance support shaped around your locations,
+            workforce mix and operating requirements.
           </p>
         </div>
         <div className="industry-grid">
@@ -720,9 +792,8 @@ function MoreSections() {
               Clearer Compliance.
             </h2>
             <p>
-              Less complexity in your day.
-              <br />
-              More confidence in your operations.
+              A defined way of working between your central teams, site teams
+              and Ordin.
             </p>
           </div>
           <div className="why-grid">
@@ -730,23 +801,23 @@ function MoreSections() {
               [
                 [
                   Layers,
-                  'Centralized Operations',
-                  'One place for payroll and workforce compliance.',
+                  'Clear responsibilities',
+                  'Agree who provides inputs, reviews exceptions and approves each payroll cycle.',
                 ],
                 [
                   ClipboardCheck,
-                  'Structured Processes',
-                  'Clear workflows and verification controls.',
+                  'Consistent review points',
+                  'Use shared input formats and verification steps across locations.',
                 ],
                 [
                   ChartNoAxesCombined,
-                  'Better Visibility',
-                  'Understand compliance status without chasing spreadsheets.',
+                  'Evidence behind the status',
+                  'Keep supporting records and outstanding actions visible alongside reports.',
                 ],
                 [
                   Rocket,
-                  'Scalable Support',
-                  'Processes that grow with your workforce.',
+                  'A plan for changing needs',
+                  'Review the scope as locations, headcount and contractor requirements change.',
                 ],
               ] as Array<[IconComponent, string, string]>
             ).map(([Icon, title, desc]) => (
@@ -761,13 +832,15 @@ function MoreSections() {
       </section>
       <section className="wrap diagnostic">
         <div>
-          <div className="eyebrow">A GOOD PLACE TO START</div>
+          <div className="eyebrow">START WITH YOUR OPERATING CHALLENGES</div>
           <h2>
-            Not sure where your
+            Where does your
             <br />
-            compliance gaps are?
+            monthly process get stuck?
           </h2>
-          <p>Start with a payroll and workforce compliance diagnostic.</p>
+          <p>
+            Review site inputs, payroll handoffs and compliance gaps with us.
+          </p>
         </div>
         <a
           className="button"
@@ -785,14 +858,16 @@ function MoreSections() {
         <div>
           <div className="eyebrow">ABOUT ORDIN</div>
           <h2>
-            Workforce complexity.
+            Your workforce is distributed.
             <br />
-            Made manageable.
+            Your oversight should be clear.
           </h2>
         </div>
         <p>
-          We help Indian businesses simplify payroll and workforce compliance
-          through structured processes, reliable operations and clear reporting.
+          Ordin works with HR and Finance leaders in India to simplify payroll,
+          compliance and workforce operations for large, multi-location
+          frontline teams. Our focus is structured processes, reliable
+          coordination and clear reporting.
         </p>
       </section>
       <Contact />
@@ -878,14 +953,15 @@ function Contact() {
             your workforce.
           </h2>
           <p>
-            Share your workforce size, locations and priorities. We’ll use these
-            to understand the support your business needs.
+            Tell us about your workforce, operating locations and the challenges
+            your HR or Finance team is working through.
           </p>
           <div className="contact-promise">
             <ShieldCheck size={22} />
             <span>
-              Your business. Your requirements.
-              <br />A conversation built around you.
+              Start with your current process.
+              <br />
+              Discuss scope, handoffs and reporting needs.
             </span>
           </div>
           <div className="contact-location">
@@ -918,14 +994,14 @@ function Contact() {
               {
                 name: 'Employee Count',
                 type: 'number',
-                placeholder: 'e.g. 186',
+                placeholder: 'Total across all locations',
                 auto: 'off',
               },
               {
-                name: 'City',
+                name: 'Operating locations',
                 type: 'text',
-                placeholder: 'Your city',
-                auto: 'address-level2',
+                placeholder: 'Cities / states and number of sites',
+                auto: 'off',
               },
             ].map((f) => (
               <label key={f.name}>
@@ -980,7 +1056,7 @@ function Contact() {
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               maxLength={4000}
-              placeholder="A little about what you need…"
+              placeholder="Tell us about your current payroll process, contractors and the gaps you want to address."
               rows={3}
             />
           </label>

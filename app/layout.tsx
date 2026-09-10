@@ -13,8 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Ordin — Payroll & Compliance. Simplified.',
-  description: 'Payroll, statutory and labour compliance, contractor compliance, audits and HR operations for Indian businesses.',
+  title: 'Ordin — Payroll & Compliance for Multi-location Workforces',
+  description:
+    'Payroll, statutory and labour compliance, contractor support and HR operations for enterprise HR and Finance leaders managing multi-location frontline workforces in India.',
 };
 
 export default function RootLayout({

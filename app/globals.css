@@ -201,7 +201,7 @@ h3 {
 }
 .hero .eyebrow {
   justify-content: center;
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 1.8px;
 }
 .green-dot {
@@ -398,6 +398,56 @@ h3 {
   color: #62766a;
   background: #fbfdfb;
 }
+.site-summary {
+  padding: 8px 25px 24px;
+}
+.site-summary-title {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 12px;
+  color: #64746a;
+  margin-bottom: 14px;
+}
+.site-summary-title > span:first-child {
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+.site-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+.site-grid > div {
+  border-left: 2px solid #d3e5db;
+  padding-left: 12px;
+}
+.site-grid span,
+.site-grid small {
+  display: block;
+  color: #64746a;
+  font-size: 12px;
+}
+.site-grid span {
+  font-size: 14px;
+}
+.site-grid strong {
+  display: block;
+  font-size: 22px;
+  font-weight: 500;
+  margin: 6px 0;
+}
+@media (max-width: 760px) {
+  .site-summary {
+    padding-inline: 16px;
+  }
+  .site-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .site-summary-title {
+    flex-wrap: wrap;
+  }
+}
 .dash-footer > span:first-child,
 .dash-footer > div {
   display: flex;
@@ -438,7 +488,7 @@ h3 {
   letter-spacing: -0.25px;
 }
 .value-card p {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.65;
 }
 .section-heading {
@@ -482,7 +532,7 @@ h3 {
   font-size: 20px;
 }
 .service-card p {
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.7;
 }
 .service-card > span:last-child {
@@ -580,6 +630,10 @@ h3 {
   margin-bottom: 5px;
   text-transform: uppercase;
 }
+.service-scope {
+  font-size: 14px;
+  line-height: 1.6;
+}
 .process-section {
   background: #f6f8f5;
   border-block: 1px solid #e8ede5;
@@ -613,7 +667,7 @@ h3 {
   margin-bottom: 8px;
 }
 .process-step p {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.7;
 }
 .visibility-section {
@@ -664,6 +718,7 @@ h3 {
   color: #113f29;
 }
 .overview-preview {
+  min-width: 0;
   border: 1px solid #dce5dc;
   border-radius: 12px;
   box-shadow: 0 15px 45px #264c2409;
@@ -781,24 +836,41 @@ h3 {
 .report-tabs {
   display: flex;
   gap: 4px;
-  padding: 12px 16px 0;
+  padding: 8px 12px;
   background: #f8faf6;
+  width: 100%;
+  height: auto;
+  justify-content: flex-start;
+  border-bottom: 1px solid #e4ebe1;
+}
+.report-views {
+  gap: 0;
+  min-width: 0;
+}
+.report-panel {
+  min-width: 0;
 }
 .report-tab {
   border: 0;
   border-bottom: 2px solid transparent;
-  padding: 8px 10px 10px;
+  padding: 10px 8px;
   background: transparent;
   color: #788779;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 550;
+  border-radius: 5px;
+  height: auto;
+  flex: 1;
 }
 .report-tab:hover,
-.report-tab.active {
+.report-tab[data-active] {
   color: #176b4c;
 }
-.report-tab.active {
+.report-tab[data-active] {
   border-bottom-color: #2d845d;
+}
+.report-tab::after {
+  display: none;
 }
 .report-table {
   font-size: 13px;
@@ -896,7 +968,7 @@ h3 {
   font-size: 18px;
 }
 .why-grid p {
-  font-size: 15px;
+  font-size: 16px;
   margin-top: 10px;
 }
 .diagnostic {
@@ -1352,7 +1424,7 @@ h3 {
     gap: 29px;
   }
   .hero .eyebrow {
-    font-size: 10px;
+    font-size: 12px;
     letter-spacing: 1px;
   }
   .hero h1 {
@@ -1373,7 +1445,7 @@ h3 {
     min-height: 47px;
   }
   .hero-foot {
-    font-size: 11px;
+    font-size: 12px;
     line-height: 1.6;
   }
   .hero-foot svg {
@@ -1418,7 +1490,7 @@ h3 {
     padding: 13px;
   }
   .visual-caption {
-    font-size: 10px;
+    font-size: 12px;
   }
   h2 {
     font-size: 33px;
@@ -1435,7 +1507,7 @@ h3 {
     margin-bottom: 27px;
   }
   .section-heading > p {
-    font-size: 15px;
+    font-size: 16px;
   }
   .value-strip {
     gap: 22px;
@@ -1445,7 +1517,7 @@ h3 {
     font-size: 14px;
   }
   .value-card p {
-    font-size: 13px;
+    font-size: 16px;
   }
   .service-grid {
     grid-template-columns: 1fr;
@@ -1459,7 +1531,7 @@ h3 {
     margin-bottom: 20px;
   }
   .service-card p {
-    font-size: 15px;
+    font-size: 16px;
   }
   .service-dialog {
     padding: 26px;
