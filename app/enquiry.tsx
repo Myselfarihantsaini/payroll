@@ -1,6 +1,5 @@
 'use client';
 import { useState, useEffect } from 'react';
-import Image from 'next/image';
 import type { SyntheticEvent } from 'react';
 import {
   ArrowUpRight,
@@ -8,6 +7,7 @@ import {
   ShieldCheck,
   Building2,
   LockKeyhole,
+  Phone,
 } from 'lucide-react';
 import {
   Dialog,
@@ -106,14 +106,6 @@ export function Contact() {
     <section className="contact-section" id="contact">
       <div className="wrap section contact-layout">
         <div className="contact-copy">
-          <Image
-            className="brand-logo brand-logo-contact"
-            src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/images/ordin-logo.png`}
-            alt="ORDIN — Payroll, Compliance, People Operations. People in harmony with progress."
-            width={1254}
-            height={1254}
-            unoptimized
-          />
           <div className="eyebrow">LET’S TALK</div>
           <h2>
             Let’s talk about
@@ -124,6 +116,12 @@ export function Contact() {
             Tell us about your workforce, operating locations and the challenges
             your HR or Finance team is working through.
           </p>
+          <div className="contact-person">
+            <strong>H. Arihant</strong>
+            <a href="tel:+919057918251">
+              <Phone size={18} aria-hidden="true" /> +91 90579 18251
+            </a>
+          </div>
           <div className="contact-promise">
             <ShieldCheck size={22} />
             <span>

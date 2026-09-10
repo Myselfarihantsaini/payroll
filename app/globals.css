@@ -174,26 +174,6 @@ svg {
   letter-spacing: -0.06em;
   line-height: 0.95;
 }
-.brand-logo {
-  display: block;
-  height: auto;
-  object-fit: contain;
-}
-.brand-logo-header {
-  width: 88px;
-  flex-shrink: 0;
-}
-.brand-logo-footer {
-  width: 200px;
-  max-width: 100%;
-  border-radius: 8px;
-}
-.brand-logo-contact {
-  width: 260px;
-  max-width: 100%;
-  margin-bottom: 28px;
-  border-radius: 8px;
-}
 .wordmark small {
   display: block;
   letter-spacing: 0.12em;
@@ -1032,6 +1012,28 @@ svg {
 .contact-copy p {
   max-width: 390px;
 }
+.contact-person {
+  display: grid;
+  gap: 8px;
+  margin: 24px 0;
+}
+.contact-person a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  min-height: 44px;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+.contact-person a:hover,
+.footer-contact a:hover {
+  text-decoration: underline;
+}
+.footer-contact a {
+  display: inline-block;
+  padding: 8px 0;
+}
 .contact-promise {
   display: flex;
   gap: 14px;
@@ -1186,9 +1188,6 @@ svg {
 @media (max-width: 860px) {
   .site-header {
     height: 80px;
-  }
-  .brand-logo-header {
-    width: 72px;
   }
   .site-nav {
     display: none;

@@ -52,7 +52,7 @@ export const documents: Record<
         title: '5. Your choices',
         paragraphs: [
           'You can use the website without completing the form, clear the fields, leave the page or delete your downloaded file. Requests concerning a hosting provider’s records should use that provider’s privacy channels.',
-          'An Ordin privacy contact has not yet been published, and this website cannot currently receive privacy requests through its enquiry form. For an existing client engagement, use your agreed business contact.',
+          'For privacy questions, contact H. Arihant on +91 90579 18251. This website cannot currently receive privacy requests through its enquiry form. For an existing client engagement, you may also use your agreed business contact.',
         ],
       },
       {
