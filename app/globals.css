@@ -1603,3 +1603,148 @@ h3 {
     transition: none !important;
   }
 }
+
+/* Enterprise presentation theme: deep navy, restrained red, operational blue-gray. */
+:root {
+  --primary: #e34b39;
+}
+body {
+  color: #122b48;
+}
+.header {
+  background: #081f3a;
+  border-bottom-color: #193a5b;
+}
+.brand,
+.brand-dot,
+.brand-mark {
+  color: #fff;
+}
+.nav {
+  color: #d5e0eb;
+}
+.nav a:hover {
+  color: #ffb34d;
+}
+.header-cta,
+.button {
+  background: #e34b39;
+  border-color: #e34b39;
+}
+.header-cta:hover,
+.button:hover {
+  background: #c93b2c;
+}
+.secondary {
+  background: transparent;
+  border-color: #8da3b7;
+  color: #fff;
+}
+.secondary:hover {
+  background: #163958;
+  border-color: #d5e0eb;
+}
+.hero {
+  width: 100%;
+  max-width: none;
+  padding-inline: max(40px, calc((100vw - 1180px) / 2));
+  background: #081f3a;
+  color: #fff;
+}
+.hero .eyebrow {
+  color: #ffb34d;
+}
+.hero h1 > span {
+  color: #ffb34d;
+}
+.hero-copy > p,
+.hero-foot {
+  color: #d5e0eb;
+}
+.hero-foot svg {
+  color: #ffb34d;
+}
+.hero-visual {
+  background: #103353;
+  border-color: #2d5374;
+}
+.visual-caption {
+  color: #b8c9d8;
+}
+.value-strip {
+  max-width: none;
+  width: 100%;
+  padding-inline: max(40px, calc((100vw - 1180px) / 2));
+  background: #edf2f6;
+  border-bottom-color: #d6e0e8;
+}
+.value-card svg,
+.industry-grid > a > svg:first-child,
+.text-link,
+.overview-head svg {
+  color: #d64836;
+}
+.section-heading .eyebrow,
+.visibility-copy .eyebrow,
+.industries .eyebrow,
+.about .eyebrow,
+.contact-copy .eyebrow {
+  color: #c54233;
+}
+.service-card:first-child {
+  background: #e34b39;
+  border-color: #e34b39;
+}
+.service-card:first-child > svg,
+.service-card:first-child > span:last-child {
+  color: #ffe0be;
+}
+.service-card:first-child p {
+  color: #fff0e2;
+}
+.process-section {
+  background: #edf2f6;
+  border-color: #d8e2e9;
+}
+.why-section {
+  background: #081f3a;
+}
+.why-section .eyebrow,
+.why-section h2,
+.why-section h3,
+.why-section p,
+.why-section .why-grid svg {
+  color: #fff;
+}
+.why-section .eyebrow {
+  color: #ffb34d;
+}
+.diagnostic {
+  border-color: #d8e2e9;
+}
+.contact-section {
+  background: #edf2f6;
+}
+.contact-copy .contact-location svg {
+  color: #d64836;
+}
+.footer .brand,
+.footer .brand-mark {
+  color: #122b48;
+}
+@media (max-width: 760px) {
+  .hero {
+    padding-inline: 24px;
+  }
+  .value-strip {
+    padding-inline: 24px;
+  }
+}
+@media (max-width: 480px) {
+  .hero {
+    padding-inline: 18px;
+  }
+  .value-strip {
+    padding-inline: 18px;
+  }
+}
