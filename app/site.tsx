@@ -45,11 +45,15 @@ export function Header() {
       <header className="site-header">
         <div className="header-inner">
           <SiteLink className="wordmark" href="/" aria-label="Ordin home">
-            <span className="logo-symbol">o</span>
-            <span>
-              ordin<span className="logo-stop">.</span>
-              <small>PAYROLL & COMPLIANCE</small>
-            </span>
+            <Image
+              className="brand-logo brand-logo-header"
+              src={`${basePath}/images/ordin-blue-logo.png`}
+              alt="Ordin — Payroll & Compliance"
+              width={1983}
+              height={793}
+              unoptimized
+              priority
+            />
           </SiteLink>
           <button
             className="mobile-toggle"
@@ -100,7 +104,14 @@ export function Footer() {
       <div className="container footer-grid">
         <div>
           <SiteLink className="wordmark" href="/" aria-label="Ordin home">
-            ordin<span className="logo-stop">.</span>
+            <Image
+              className="brand-logo brand-logo-footer"
+              src={`${basePath}/images/ordin-blue-logo.png`}
+              alt="Ordin — Payroll & Compliance. People, Process, Progress."
+              width={1983}
+              height={793}
+              unoptimized
+            />
           </SiteLink>
           <p>
             Payroll | Compliance

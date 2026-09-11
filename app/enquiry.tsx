@@ -1,5 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import type { SyntheticEvent } from 'react';
 import {
   ArrowUpRight,
@@ -106,6 +107,14 @@ export function Contact() {
     <section className="contact-section" id="contact">
       <div className="wrap section contact-layout">
         <div className="contact-copy">
+          <Image
+            className="brand-logo brand-logo-contact"
+            src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/images/ordin-blue-logo.png`}
+            alt="Ordin — Payroll & Compliance. People, Process, Progress."
+            width={1983}
+            height={793}
+            unoptimized
+          />
           <div className="eyebrow">LET’S TALK</div>
           <h2>
             Let’s talk about
