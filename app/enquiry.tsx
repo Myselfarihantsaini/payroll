@@ -109,10 +109,10 @@ export function Contact() {
         <div className="contact-copy">
           <Image
             className="brand-logo brand-logo-contact"
-            src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/images/ordin-blue-logo.png`}
+            src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/images/ordin-ring-logo.png`}
             alt="Ordin — Payroll & Compliance. People, Process, Progress."
-            width={1983}
-            height={793}
+            width={1774}
+            height={887}
             unoptimized
           />
           <div className="eyebrow">LET’S TALK</div>

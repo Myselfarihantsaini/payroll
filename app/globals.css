@@ -187,7 +187,7 @@ svg {
   object-fit: contain;
 }
 .brand-logo-header {
-  width: 210px;
+  width: 180px;
   max-width: none;
 }
 .brand-logo-footer {
@@ -1210,7 +1210,7 @@ svg {
     height: 80px;
   }
   .brand-logo-header {
-    width: 170px;
+    width: 144px;
   }
   .site-nav {
     display: none;

@@ -47,10 +47,10 @@ export function Header() {
           <SiteLink className="wordmark" href="/" aria-label="Ordin home">
             <Image
               className="brand-logo brand-logo-header"
-              src={`${basePath}/images/ordin-blue-logo.png`}
+              src={`${basePath}/images/ordin-ring-logo.png`}
               alt="Ordin — Payroll & Compliance"
-              width={1983}
-              height={793}
+              width={1774}
+              height={887}
               unoptimized
               priority
             />
@@ -106,10 +106,10 @@ export function Footer() {
           <SiteLink className="wordmark" href="/" aria-label="Ordin home">
             <Image
               className="brand-logo brand-logo-footer"
-              src={`${basePath}/images/ordin-blue-logo.png`}
+              src={`${basePath}/images/ordin-ring-logo.png`}
               alt="Ordin — Payroll & Compliance. People, Process, Progress."
-              width={1983}
-              height={793}
+              width={1774}
+              height={887}
               unoptimized
             />
           </SiteLink>
