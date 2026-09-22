@@ -1,5 +1,5 @@
 import { Shell, PageHero, IndustryGrid, Callout } from '../site';
-export const metadata = { title: 'Industries — Ordin' };
+export const metadata = { title: 'Industries — OrdinHR' };
 export default function Page() {
   return (
     <Shell>

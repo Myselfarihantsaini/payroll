@@ -12,7 +12,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const s = services.find((s) => s.slug === slug);
   return {
-    title: s ? `${s.title} — Ordin` : 'Service not found — Ordin',
+    title: s ? `${s.title} — OrdinHR` : 'Service not found — OrdinHR',
     description: s?.desc,
   };
 }

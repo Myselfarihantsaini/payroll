@@ -44,11 +44,11 @@ export function Header() {
       </SiteLink>
       <header className="site-header">
         <div className="header-inner">
-          <SiteLink className="wordmark" href="/" aria-label="Ordin home">
+          <SiteLink className="wordmark" href="/" aria-label="OrdinHR home">
             <Image
               className="brand-logo brand-logo-header"
-              src={`${basePath}/images/ordin-ring-logo.png`}
-              alt="Ordin — Payroll & Compliance"
+              src={`${basePath}/images/ordinhr-logo.png`}
+              alt="OrdinHR — Payroll & Compliance"
               width={1774}
               height={887}
               unoptimized
@@ -103,11 +103,11 @@ export function Footer() {
     <footer className="site-footer">
       <div className="container footer-grid">
         <div>
-          <SiteLink className="wordmark" href="/" aria-label="Ordin home">
+          <SiteLink className="wordmark" href="/" aria-label="OrdinHR home">
             <Image
               className="brand-logo brand-logo-footer"
-              src={`${basePath}/images/ordin-ring-logo.png`}
-              alt="Ordin — Payroll & Compliance. People, Process, Progress."
+              src={`${basePath}/images/ordinhr-logo.png`}
+              alt="OrdinHR — Payroll & Compliance. People, Process, Progress."
               width={1774}
               height={887}
               unoptimized
@@ -136,7 +136,7 @@ export function Footer() {
           ))}
         </div>
         <div>
-          <h3>Explore Ordin</h3>
+          <h3>Explore OrdinHR</h3>
           <SiteLink href="/">Home</SiteLink>
           <SiteLink href="/solutions">Solutions</SiteLink>
           <SiteLink href="/products">Workforce tools</SiteLink>
@@ -161,7 +161,7 @@ export function Footer() {
         </div>
       </div>
       <div className="container footer-bottom">
-        <span>© {new Date().getFullYear()} Ordin. All rights reserved.</span>
+        <span>© {new Date().getFullYear()} OrdinHR. All rights reserved.</span>
         <div className="legal-links">
           <SiteLink href="/privacy-policy">Privacy Policy</SiteLink>
           <SiteLink href="/terms-of-use">Terms of Use</SiteLink>
@@ -181,8 +181,8 @@ export function Shell({ children }: { children: React.ReactNode }) {
 }
 const faqs = [
   [
-    'What does Ordin do?',
-    'Ordin supports businesses around the globe with payroll management, statutory and labour compliance, contractor compliance, compliance audits and HR operations.',
+    'What does OrdinHR do?',
+    'OrdinHR supports businesses around the globe with payroll management, statutory and labour compliance, contractor compliance, compliance audits and HR operations.',
   ],
   [
     'Who are these services designed for?',
@@ -303,11 +303,11 @@ export function HomePage() {
         </div>
         <div>
           <p>
-            From monthly payroll to contractor documentation, Ordin brings
+            From monthly payroll to contractor documentation, OrdinHR brings
             structure to the work behind your workforce.
           </p>
           <SiteLink className="text-link" href="/about">
-            Meet Ordin <ArrowRight size={17} />
+            Meet OrdinHR <ArrowRight size={17} />
           </SiteLink>
         </div>
       </section>
@@ -438,7 +438,7 @@ export function HomePage() {
             </li>
           </ul>
           <SiteLink className="button" href="/about">
-            Why Ordin <ArrowRight size={17} />
+            Why OrdinHR <ArrowRight size={17} />
           </SiteLink>
         </div>
       </section>
@@ -802,7 +802,7 @@ export function IndustryPage({ slug }: { slug: string }) {
           <h2>{item.focus}</h2>
           <p>
             Connect your local operations with a consistent payroll and
-            compliance process. Ordin helps your central HR and Finance teams
+            compliance process. OrdinHR helps your central HR and Finance teams
             organise the inputs, records and follow-up that keep work moving.
           </p>
           <ul className="tick-list">
@@ -841,13 +841,13 @@ export function AboutPage() {
   return (
     <Shell>
       <PageHero
-        label="About Ordin"
+        label="About OrdinHR"
         title="Clarity behind every workforce."
         description="Payroll and compliance support for businesses managing people across locations."
       />
       <section className="container section detail-layout">
         <div>
-          <span className="eyebrow">MEET ORDIN</span>
+          <span className="eyebrow">MEET OrdinHR</span>
           <h2>
             People move your business.
             <br />

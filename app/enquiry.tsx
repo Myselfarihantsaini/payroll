@@ -99,7 +99,7 @@ export function Contact() {
     const url = URL.createObjectURL(new Blob([draft], { type: 'text/plain' }));
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'ordin-consultation-enquiry.txt';
+    a.download = 'ordinhr-consultation-enquiry.txt';
     a.click();
     URL.revokeObjectURL(url);
   }
@@ -109,8 +109,8 @@ export function Contact() {
         <div className="contact-copy">
           <Image
             className="brand-logo brand-logo-contact"
-            src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/images/ordin-ring-logo.png`}
-            alt="Ordin — Payroll & Compliance. People, Process, Progress."
+            src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/images/ordinhr-logo.png`}
+            alt="OrdinHR — Payroll & Compliance. People, Process, Progress."
             width={1774}
             height={887}
             unoptimized
@@ -282,7 +282,7 @@ export function Legal() {
         },
         {
           title: 'Terms',
-          text: 'This website provides an overview of Ordin’s services. Dashboard figures are illustrative and do not represent live customer data. Service scope, responsibilities and fees will be agreed separately before work begins.',
+          text: 'This website provides an overview of OrdinHR’s services. Dashboard figures are illustrative and do not represent live customer data. Service scope, responsibilities and fees will be agreed separately before work begins.',
         },
       ].map((item) => (
         <Dialog key={item.title}>

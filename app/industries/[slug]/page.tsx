@@ -13,8 +13,8 @@ export async function generateMetadata({
   const i = industries.find((i) => i.slug === slug);
   return {
     title: i
-      ? `${i.name} Payroll & Compliance — Ordin`
-      : 'Industry not found — Ordin',
+      ? `${i.name} Payroll & Compliance — OrdinHR`
+      : 'Industry not found — OrdinHR',
     description: i?.desc,
   };
 }

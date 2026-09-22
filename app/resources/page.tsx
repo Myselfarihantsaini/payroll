@@ -1,6 +1,6 @@
 import { ResourcesPage } from '../knowledge';
 export const metadata = {
-  title: 'Resource Centre — Ordin',
+  title: 'Resource Centre — OrdinHR',
   description:
     'Workforce guidance, illustrative case studies and official regulatory sources.',
 };

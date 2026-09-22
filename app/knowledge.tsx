@@ -14,7 +14,7 @@ export const documents: Record<
 > = {
   'privacy-policy': {
     title: 'Privacy Policy',
-    intro: 'How information is handled on the Ordin website.',
+    intro: 'How information is handled on the OrdinHR website.',
     sections: [
       {
         id: 'scope',
@@ -27,7 +27,7 @@ export const documents: Record<
         id: 'form',
         title: '2. Information you enter',
         paragraphs: [
-          'The enquiry form asks for your name, company, phone, email, employee count, operating locations, required service and an optional message. Online delivery is not connected. The form currently prepares a text file for you to download; it does not send those entries to Ordin or save them in an application database.',
+          'The enquiry form asks for your name, company, phone, email, employee count, operating locations, required service and an optional message. Online delivery is not connected. The form currently prepares a text file for you to download; it does not send those entries to OrdinHR or save them in an application database.',
           'Form values are held in the current page session. A downloaded enquiry remains on your device until you remove it. Do not enter employee identity documents, bank details, medical information or individual salary records in this public form.',
         ],
       },
@@ -36,7 +36,7 @@ export const documents: Record<
         title: '3. Website hosting and technical information',
         paragraphs: [
           'This website is available through GitHub Pages and OpenAI Sites. When a page is requested, the hosting provider receives technical information such as the IP address, requested URL and browser information. Provider processing and retention are governed by their own policies.',
-          'Ordin has not added advertising trackers or an analytics integration to this website. Hosting and platform services may use their own operational or security technologies.',
+          'OrdinHR has not added advertising trackers or an analytics integration to this website. Hosting and platform services may use their own operational or security technologies.',
         ],
       },
       {
@@ -66,13 +66,13 @@ export const documents: Record<
   },
   'terms-of-use': {
     title: 'Terms of Use',
-    intro: 'Guidelines for using Ordin’s public website and information.',
+    intro: 'Guidelines for using OrdinHR’s public website and information.',
     sections: [
       {
         id: 'purpose',
         title: '1. What this website provides',
         paragraphs: [
-          'This website introduces Ordin’s payroll, compliance and workforce operations services. It is an information website, not an employee portal or a live payroll processing system. Visiting it or preparing an enquiry does not create a client relationship.',
+          'This website introduces OrdinHR’s payroll, compliance and workforce operations services. It is an information website, not an employee portal or a live payroll processing system. Visiting it or preparing an enquiry does not create a client relationship.',
         ],
       },
       {
@@ -97,7 +97,7 @@ export const documents: Record<
           'Use the website for lawful business information and enquiries.',
           'Do not attempt to disrupt the site, gain unauthorised access or introduce harmful code.',
           'Do not submit confidential employee records through the public enquiry form.',
-          'Do not present Ordin’s content or identity as your own, or imply an endorsement that has not been agreed.',
+          'Do not present OrdinHR’s content or identity as your own, or imply an endorsement that has not been agreed.',
         ],
       },
       {
@@ -180,7 +180,7 @@ export function ProductsPage() {
       />
       <section className="container section">
         <p className="information-note">
-          These are capability areas to assess with your team. Ordin’s current
+          These are capability areas to assess with your team. OrdinHR’s current
           offering is service-led; the examples below are not proprietary
           software products available for purchase.
         </p>
@@ -511,7 +511,7 @@ export function CaseStudiesPage() {
       <section className="container section">
         <p className="information-note">
           The following are hypothetical scenarios for discussion. They do not
-          describe Ordin clients, completed engagements or measured results.
+          describe OrdinHR clients, completed engagements or measured results.
         </p>
         <div className="scenario-list">
           {[
