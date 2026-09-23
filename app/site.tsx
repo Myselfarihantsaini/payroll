@@ -142,6 +142,9 @@ export function Footer() {
           <SiteLink href="/products">Workforce tools</SiteLink>
           <SiteLink href="/industries">Industries</SiteLink>
           <SiteLink href="/about">About us</SiteLink>
+          <SiteLink href="/documents/OrdinHR-Company-Profile.pdf" download>
+            Company profile (PDF)
+          </SiteLink>
           <SiteLink href="/#approach">Our approach</SiteLink>
           <SiteLink href="/#faqs">FAQs</SiteLink>
           <SiteLink href="/contact">Contact us</SiteLink>
@@ -863,6 +866,13 @@ export function AboutPage() {
             practical focus on recurring operations and the records that support
             them.
           </p>
+          <SiteLink
+            href="/documents/OrdinHR-Company-Profile.pdf"
+            className="button"
+            download
+          >
+            Download Company Profile <ArrowRight size={17} />
+          </SiteLink>
           <h3>Global outlook. Local requirements.</h3>
           <p>
             As organisations add locations, payroll calendars, workforce
