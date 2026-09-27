@@ -25,7 +25,7 @@ import {
   SelectItem,
 } from '@/components/ui/select';
 import { services } from './content';
-const CONTACT_EMAIL = '';
+const CONTACT_EMAIL = 'myselfarihantsaini@gmail.com';
 export function Contact() {
   const [service, setService] = useState<string | null>(() => {
     if (typeof window === 'undefined') return null;
