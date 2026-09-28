@@ -27,7 +27,7 @@ export const documents: Record<
         id: 'form',
         title: '2. Information you enter',
         paragraphs: [
-          'The enquiry form asks for your name, company, phone, email, employee count, operating locations, required service and an optional message. Online delivery is not connected. The form currently prepares a text file for you to download; it does not send those entries to OrdinHR or save them in an application database.',
+          'The enquiry form asks for your name, company, phone, email, employee count, operating locations, required service and an optional message. It opens an email draft to myselfarihantsaini@gmail.com in your chosen email app. You must send the email to complete your enquiry. The website does not automatically submit the form or store its entries in an application database. You can also download a text copy.',
           'Form values are held in the current page session. A downloaded enquiry remains on your device until you remove it. Do not enter employee identity documents, bank details, medical information or individual salary records in this public form.',
         ],
       },
@@ -35,7 +35,7 @@ export const documents: Record<
         id: 'hosting',
         title: '3. Website hosting and technical information',
         paragraphs: [
-          'This website is available through GitHub Pages and OpenAI Sites. When a page is requested, the hosting provider receives technical information such as the IP address, requested URL and browser information. Provider processing and retention are governed by their own policies.',
+          'The public website at shambhavaa.com/payroll is hosted through GitHub Pages. When a page is requested, the hosting provider receives technical information such as the IP address, requested URL and browser information. Provider processing and retention are governed by their own policies.',
           'OrdinHR has not added advertising trackers or an analytics integration to this website. Hosting and platform services may use their own operational or security technologies.',
         ],
       },
@@ -43,7 +43,7 @@ export const documents: Record<
         id: 'sharing',
         title: '4. Sharing and external links',
         paragraphs: [
-          'The form does not transmit your enquiry to a recipient. If you share the downloaded file yourself, the recipient receives the details you included. Resource links take you to external websites with their own privacy practices.',
+          'The form passes the draft to your chosen email app. When you send it, OrdinHR receives the details you included; your email provider also processes the message under its own privacy practices. If you share a downloaded copy, the recipient receives its contents. Resource links take you to external websites with their own privacy practices.',
           'Service-related processing, authorised recipients, security measures, retention and any cross-border transfers must be documented separately before client records are exchanged.',
         ],
       },
@@ -52,7 +52,7 @@ export const documents: Record<
         title: '5. Your choices',
         paragraphs: [
           'You can use the website without completing the form, clear the fields, leave the page or delete your downloaded file. Requests concerning a hosting provider’s records should use that provider’s privacy channels.',
-          'For privacy questions, contact H. Arihant on +91 90579 18251. This website cannot currently receive privacy requests through its enquiry form. For an existing client engagement, you may also use your agreed business contact.',
+          'For privacy questions, contact H. Arihant on +91 90579 18251 or email myselfarihantsaini@gmail.com. For an existing client engagement, you may also use your agreed business contact.',
         ],
       },
       {

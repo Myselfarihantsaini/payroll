@@ -243,7 +243,12 @@ export function Contact() {
               Talk to Us <ArrowUpRight size={17} />
             </button>
           </div>
-          {!CONTACT_EMAIL && (
+          {CONTACT_EMAIL ? (
+            <p className="form-notice">
+              Opens an email draft to {CONTACT_EMAIL}. Send it from your email
+              app to complete your enquiry.
+            </p>
+          ) : (
             <p className="form-notice">
               Online enquiries are not yet available. You can prepare and
               download your details.
