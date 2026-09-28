@@ -398,7 +398,7 @@ svg {
 }
 .solution-panel {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 35px;
   align-items: center;
   background: #fff;
@@ -693,7 +693,7 @@ svg {
 }
 .story-section {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 75px;
   align-items: center;
 }
@@ -939,7 +939,7 @@ svg {
 }
 .detail-layout {
   display: grid;
-  grid-template-columns: 1.1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 80px;
   align-items: center;
 }

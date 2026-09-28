@@ -1,4 +1,4 @@
-import { Shell, PageHero, SiteLink, Callout, ReportPreview } from './site';
+import { Shell, PageHero, SiteLink, Callout } from './site';
 import { ArrowRight, BookOpen, FileCheck2, ShieldCheck } from 'lucide-react';
 
 type Section = {
@@ -87,7 +87,7 @@ export const documents: Record<
         title: '3. Resources and illustrative content',
         paragraphs: [
           'Articles and checklists provide general operational information. They are not a determination of your legal obligations. Check official publications and obtain advice appropriate to your establishments before acting on regulatory information.',
-          'Dashboard numbers are sample data. Example case studies describe hypothetical situations and proposed approaches; they are not client testimonials or evidence of achieved results. Workforce-tool descriptions explain capability areas, not a promise of proprietary software.',
+          'Example case studies describe hypothetical situations and proposed approaches; they are not client testimonials or evidence of achieved results. Workforce-tool descriptions explain capability areas, not a promise of proprietary software.',
         ],
       },
       {
@@ -241,7 +241,6 @@ export function ProductsPage() {
             feasibility and scope review.
           </p>
         </div>
-        <ReportPreview type="overview" />
       </section>
       <Callout />
     </Shell>

@@ -203,10 +203,7 @@ const faqs = [
     'What does a compliance review include?',
     'An agreed review of payroll, workforce and contractor documentation, with gaps, outstanding records and next actions identified.',
   ],
-  [
-    'Is the reporting preview a software product?',
-    'The previews show illustrative reporting formats and sample data. Service delivery and reporting tools are agreed with you; these are not live software screens.',
-  ],
+
   [
     'What do you need to get started?',
     'A view of your workforce, locations, current payroll process and priority challenges. Detailed document requirements follow the initial assessment.',
@@ -411,10 +408,7 @@ export function HomePage() {
         </div>
       </section>
       <section className="container section story-section">
-        <div className="story-visual">
-          <span className="section-pill">Illustrative management view</span>
-          <ReportPreview type="overview" />
-        </div>
+
         <div>
           <span className="eyebrow">ONE PARTNER. CLEARER COMPLIANCE.</span>
           <h2>
@@ -539,101 +533,8 @@ function SolutionPanel({ index }: { index: number }) {
           Explore {s.title} <ArrowRight size={16} />
         </SiteLink>
       </div>
-      <div className="solution-visual">
-        <ReportPreview
-          type={
-            index === 0 ? 'payroll' : index === 1 ? 'compliance' : 'contractor'
-          }
-        />
-      </div>
+
     </article>
-  );
-}
-export function ReportPreview({ type }: { type: string }) {
-  const rows =
-    type === 'payroll'
-      ? [
-          ['Employee inputs', 'Reviewed'],
-          ['Salary calculations', 'Completed'],
-          ['Payslips', 'Ready'],
-          ['F&F records', 'In review'],
-        ]
-      : type === 'contractor'
-        ? [
-            ['Workforce records', 'Verified'],
-            ['Wage documents', 'Verified'],
-            ['PF / ESI records', 'In review'],
-            ['Site allocations', 'Verified'],
-          ]
-        : [
-            ['Payroll', 'Completed'],
-            ['PF status', 'Compliant'],
-            ['ESI status', 'Compliant'],
-            ['Open issues', '7 to review'],
-          ];
-  return (
-    <div className="report-preview">
-      <div className="report-top">
-        <div className="report-icon">
-          {type === 'payroll' ? (
-            <Wallet />
-          ) : type === 'contractor' ? (
-            <Users />
-          ) : (
-            <ShieldCheck />
-          )}
-        </div>
-        <div>
-          <h4>
-            {type === 'payroll'
-              ? 'Monthly payroll'
-              : type === 'contractor'
-                ? 'Contractor review'
-                : 'Workforce overview'}
-          </h4>
-          <span>Illustrative reporting view</span>
-        </div>
-        <span className="sample-label">SAMPLE</span>
-      </div>
-      <div className="report-metrics">
-        <div>
-          <small>Employees</small>
-          <strong>186</strong>
-        </div>
-        <div>
-          <small>Contractors</small>
-          <strong>04</strong>
-        </div>
-        <div>
-          <small>Locations</small>
-          <strong>04</strong>
-        </div>
-      </div>
-      <div className="report-rows">
-        {rows.map(([label, status]) => (
-          <div key={label}>
-            <span>{label}</span>
-            <span
-              className={status.includes('review') ? 'status amber' : 'status'}
-            >
-              {status.includes('review') ? null : <Check size={12} />} {status}
-            </span>
-          </div>
-        ))}
-      </div>
-      <div className="completion">
-        <div>
-          <span>Documents complete</span>
-          <strong>94%</strong>
-        </div>
-        <div className="progress-track">
-          <span />
-        </div>
-      </div>
-      <div className="report-caption">
-        <FileCheck2 size={15} /> Records, status and next actions in one view.
-      </div>
-    </div>
   );
 }
 export function IndustryGrid() {
@@ -747,15 +648,7 @@ export function ServicePage({ slug }: { slug: string }) {
             Discuss your requirements <ArrowRight size={16} />
           </SiteLink>
         </div>
-        <ReportPreview
-          type={
-            slug === 'payroll-management'
-              ? 'payroll'
-              : slug === 'contractor-compliance'
-                ? 'contractor'
-                : 'compliance'
-          }
-        />
+
       </section>
       <section className="container detail-deliverables">
         <article>
@@ -823,7 +716,7 @@ export function IndustryPage({ slug }: { slug: string }) {
             Discuss your workforce <ArrowRight size={17} />
           </SiteLink>
         </div>
-        <ReportPreview type="overview" />
+
       </section>
       <section className="container section related-section">
         <h2>Services for your operations</h2>
